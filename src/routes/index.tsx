@@ -74,55 +74,84 @@ function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
-    <section ref={ref} id="top" className="relative pt-32 pb-24 grain-bg overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 relative">
+    <section ref={ref} id="top" className="relative pt-28 pb-20 grain-bg overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div style={{ y }} className="absolute -top-10 right-0 w-72 h-72 rounded-full bg-accent/20 blur-3xl pointer-events-none" />
         <motion.div style={{ y }} className="absolute top-40 -left-10 w-80 h-80 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
 
-        <motion.div initial="hidden" animate="show" variants={fadeUp} custom={0} className="chip mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          Available for internships · 2026
-        </motion.div>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <motion.div initial="hidden" animate="show" variants={fadeUp} custom={0} className="chip mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              Available for internships · 2026
+            </motion.div>
 
-        <motion.h1
-          initial="hidden" animate="show" variants={fadeUp} custom={1}
-          className="text-display text-5xl md:text-7xl lg:text-8xl font-medium leading-[0.95] max-w-4xl"
-        >
-          Anshika Jain.<br />
-          <span className="italic text-primary">Building</span> intelligent<br />
-          <span className="text-accent">solutions</span> with AI.
-        </motion.h1>
+            <motion.h1
+              initial="hidden" animate="show" variants={fadeUp} custom={1}
+              className="text-display text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95]"
+            >
+              Anshika Jain.<br />
+              <span className="italic text-primary">Building</span> intelligent<br />
+              <span className="text-accent">solutions</span> with AI.
+            </motion.h1>
 
-        <motion.p initial="hidden" animate="show" variants={fadeUp} custom={2} className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          AI & Machine Learning student, AI enthusiast and web developer crafting
-          real-world projects at the intersection of intelligence and design.
-        </motion.p>
+            <motion.p initial="hidden" animate="show" variants={fadeUp} custom={2} className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
+              AI & Machine Learning student, AI enthusiast and web developer crafting
+              real-world projects at the intersection of intelligence and design.
+            </motion.p>
 
-        <motion.div initial="hidden" animate="show" variants={fadeUp} custom={3} className="mt-10 flex flex-wrap gap-3">
-          <a href="#projects" className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:gap-3">
-            View Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <a href="/resume.pdf" download className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-muted transition">
-            <Download className="w-4 h-4" /> Download Resume
-          </a>
-          <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-muted transition">
-            <Mail className="w-4 h-4" /> Contact Me
-          </a>
-        </motion.div>
+            <motion.div initial="hidden" animate="show" variants={fadeUp} custom={3} className="mt-9 flex flex-wrap gap-3">
+              <a href="#projects" className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:gap-3">
+                View Projects <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a href="/resume.pdf" download className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-muted transition">
+                <Download className="w-4 h-4" /> Download Resume
+              </a>
+              <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-muted transition">
+                <Mail className="w-4 h-4" /> Contact Me
+              </a>
+            </motion.div>
 
-        <motion.div initial="hidden" animate="show" variants={fadeUp} custom={4} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
-          {[
-            { k: "B.Tech", v: "AI & ML" },
-            { k: "2028", v: "Graduating" },
-            { k: "5+", v: "Certifications" },
-            { k: "Open", v: "to opportunities" },
-          ].map((s) => (
-            <div key={s.k} className="border-l border-border pl-4">
-              <div className="text-display text-2xl font-semibold">{s.k}</div>
-              <div className="text-sm text-muted-foreground mt-0.5">{s.v}</div>
+            <motion.div initial="hidden" animate="show" variants={fadeUp} custom={4} className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { k: "B.Tech", v: "AI & ML" },
+                { k: "2028", v: "Graduating" },
+                { k: "5+", v: "Certifications" },
+                { k: "Open", v: "to opportunities" },
+              ].map((s) => (
+                <div key={s.k} className="border-l border-border pl-4">
+                  <div className="text-display text-2xl font-semibold">{s.k}</div>
+                  <div className="text-sm text-muted-foreground mt-0.5">{s.v}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 order-1 lg:order-2 relative"
+          >
+            <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden border border-border shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/30 mix-blend-overlay z-10 pointer-events-none" />
+              <img
+                src={anshikaPhoto.url}
+                alt="Portrait of Anshika Jain"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent z-10" />
+              <div className="absolute bottom-5 left-5 right-5 z-20 flex items-end justify-between text-white">
+                <div>
+                  <div className="text-xs uppercase tracking-widest opacity-80">Hello, I'm</div>
+                  <div className="text-display text-2xl font-semibold">Anshika Jain</div>
+                </div>
+                <div className="chip !bg-white/15 !border-white/30 !text-white backdrop-blur">AI · ML</div>
+              </div>
             </div>
-          ))}
-        </motion.div>
+            <div className="absolute -z-10 -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 blur-2xl rounded-3xl" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
