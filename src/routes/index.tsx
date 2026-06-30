@@ -6,6 +6,7 @@ import {
   Sparkles, Brain, Code2, Database, Wrench, GraduationCap,
   Award, Briefcase, ExternalLink, Send, ArrowRight,
 } from "lucide-react";
+import anshikaPhoto from "@/assets/anshika.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
